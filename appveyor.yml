@@ -8,6 +8,8 @@ before_build:
 - set PATH="C:\Program Files (x86)\MSBuild\14.0\Bin";%PATH%
 build:
   verbosity: minimal
+  publish_nuget: true
+  publish_nuget_symbols: true
 
 test_script:
 - ps: >-
@@ -24,5 +26,3 @@ test_script:
     pwd
 
     vstest.console /logger:Appveyor ".\AdysTech.InfluxDB.Client.Net.Test\bin\Debug\Tests.orderedtest"
-
-deploy: off
